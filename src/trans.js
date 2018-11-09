@@ -1,4 +1,4 @@
-export function Trans(balance){
-  //this.date = createDate()
+function Trans(balance){
+  this.date = createDate()
   this.balance = balance
 }
