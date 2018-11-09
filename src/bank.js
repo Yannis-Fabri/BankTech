@@ -1,18 +1,22 @@
-function Bank(){
-  this.balance = balance
-  this.statement = statement
-}
+(function(exports){
 
-Bank.prototype = {
-  deposit: function(amount){
-    this.balance += amount
-    this.statement = statement
-  },
-  withdraw: function(amount){
-    this.balance -= amount
-    this.statement = statement
-  },
-  viewState: function(){
-    console.log(Bank.statement)
+  function Bank(){
+    this.balance = 1000
+    this.statement = []
   }
-}
+
+  Bank.prototype = {
+    deposit: function(amount){
+      this.balance += amount
+      this.statement.push(new Trans("You've deposited ", amount, " and you're total balance is: ", this.balance))
+    },
+    withdraw: function(amount){
+      this.balance -= amount
+      this.statement = statement
+      this.statement.push(new Trans("You've deposited ", amount, " and you're total balance is: ", this.balance))
+    },
+    viewState: function(){
+      console.log(this.statement)
+    }
+  }
+})(this)
